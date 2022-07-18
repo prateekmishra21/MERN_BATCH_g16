@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <style>
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+
+      p {
+        font-size: 50px;
+        font-weight: 900;
+      }
+
+      .input-tag {
+        width: 400px;
+        height: 40px;
+        margin: 10px 0px;
+        border: 1px solid gray;
+        border-radius: 10px;
+        padding-left: 10px;
+      }
+
+      .btn-tag {
+        background-color: black;
+        color: white;
+        font-size: 40px;
+        font-weight: bold;
+        border: none;
+        border-radius: 20px;
+        padding: 5px 20px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <p>Login Your account</p>
+      </div>
+
+      <h5 id="error_msg"></h5>
+
+      <div>
+        <input id="username" placeholder="Username" class="input-tag" />
+      </div>
+      <div>
+        <input id="password" placeholder="Password" class="input-tag" />
+      </div>
+      <div>
+        <button onclick="getValues();" class="btn-tag">Login</button>
+      </div>
+    </div>
+
+    <script>
+      const getValues = () => {
+        var data = {
+          username: "react",
+          password: "12",
+        };
+
+        var element = document.getElementById("username");
+        var element2 = document.getElementById("password");
+        var message = document.getElementById("error_msg");
+
+        if (
+          element.value === data.username &&
+          element2.value === data.password
+        ) {
+          //   message.innerText = "Welcome to Home Page";
+          //   message.style.color = "green";
+
+          //   message.innerHTML = <p style="color:green;">Welcome to Home Page</p>;
+          window.location.href = "https://www.google.com/";
+        } else {
+          //   message.innerText = "Wrong Username or password";
+          //   message.style.color = "red";
+
+          window.location.href = "https://www.facebook.com/";
+        }
+      };
+    </script>
+  </body>
+</html>

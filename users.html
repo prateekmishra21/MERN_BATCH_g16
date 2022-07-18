@@ -1,0 +1,29 @@
+<html>
+  <body>
+    <button
+      style="
+        width: 300px;
+        height: 150px;
+        border: none;
+        background-color: black;
+        color: white;
+        cursor: pointer;
+        font-size: 50px;
+      "
+      onclick="getUsers();"
+    >
+      Get Users
+    </button>
+    <script>
+      const getUsers = () => {
+        let Url = "https://jsonplaceholder.typicode.com/photos";
+
+        fetch(Url)
+          .then((res) => {
+            return res.json();
+          })
+          .then((res) => console.log(res));
+      };
+    </script>
+  </body>
+</html>

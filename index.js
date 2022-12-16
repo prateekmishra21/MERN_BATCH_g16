@@ -1,6 +1,11 @@
 const express = require("express");
 const parser = require("body-parser");
-const { getAllStudents, createStudent } = require("./src/controllers");
+const {
+  getAllStudents,
+  createStudent,
+  updateStudent,
+  deleteStudent,
+} = require("./src/controllers");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
@@ -26,6 +31,8 @@ server.use(parser.json());
 // http methods -> 2 min args, max -- N
 server.get("/students", getAllStudents);
 server.post("/create-new-students", createStudent);
+server.put("/update-student", updateStudent);
+server.delete("/delete-student", deleteStudent);
 
 server.listen(4000, () => {
   console.log("Server Stared on 4000 PORT");

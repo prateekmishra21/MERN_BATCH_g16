@@ -5,6 +5,7 @@ const {
   createStudent,
   updateStudent,
   deleteStudent,
+  login,
 } = require("./src/controllers");
 const cors = require("cors");
 const mongoose = require("mongoose");
@@ -30,6 +31,7 @@ server.use(parser.json());
 
 // http methods -> 2 min args, max -- N
 server.get("/students", getAllStudents);
+server.post("/login", login);
 server.post("/create-new-students", createStudent);
 server.put("/update-student", updateStudent);
 server.delete("/delete-student", deleteStudent);

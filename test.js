@@ -5,4 +5,7 @@ var obj = {
 };
 
 obj.name = undefined;
-console.log(obj);
+// console.log(obj);
+
+var str = "hiilove@gmail.com";
+console.log(str.split("@")[1]);

@@ -15,8 +15,8 @@ const getAllStudents = async (request, response) => {
 
   // console.log(request.query);
   if (_id) {
-    var allStudents = await Student.findById(_id);
-
+    var allStudents = await Student.findOne(_id);
+    console.log(allStudents.getDomainName());
     // var allStudents = await Student.find({ _id: id });
   } else if (name) {
     var allStudents = await Student.findOne({ name: name });
@@ -47,8 +47,6 @@ const getAllStudents = async (request, response) => {
 
 const createStudent = async (request, response) => {
   var oneStudent = new Student(request.body); // Create New Student in database.
-
-  oneStudent.age = oneStudent.age + 5;
   oneStudent = await oneStudent.save();
   return response.json({ status: "Student Created", student: oneStudent });
 };
@@ -68,10 +66,19 @@ const deleteStudent = async (request, response) => {
   await Student.findByIdAndDelete(_id);
   return response.json({ status: "Student Deleted" });
 };
+const login = async (request, response) => {
+  console.log(request.body);
+  var isExist = await Student.find(request.body);
+  if (isExist.length > 0) {
+    return response.json({ status: "Done", isExist });
+  }
+  return response.json({ status: "Fail" });
+};
 
 module.exports = {
   getAllStudents,
   createStudent,
   updateStudent,
   deleteStudent,
+  login,
 };

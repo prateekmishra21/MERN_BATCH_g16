@@ -1,4 +1,4 @@
-const { Student } = require("./models");
+const { Student } = require("../models/models");
 
 const getAllStudentsOld = (request, response) => {
   var students = ["Vatsal", "Prateek", "Rahul", "Jatin"];

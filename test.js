@@ -1,11 +1,10 @@
-var obj = {
-  name: "Name",
-  age: 34,
-  email: "sdjdnkjs",
-};
+var CryptoJS = require("crypto-js");
+var uuid = require("uuid");
 
-obj.name = undefined;
-// console.log(obj);
+// Encrypt
+var ciphertext = CryptoJS.SHA256("123456", "hi").toString();
 
-var str = "hiilove@gmail.com";
-console.log(str.split("@")[1]);
+console.log(
+  ciphertext === "U2FsdGVkX18m8IUjZHoanEO6aG6Vok0lK0fEpCx95xI=",
+  ciphertext
+);

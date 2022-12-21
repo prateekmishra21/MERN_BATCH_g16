@@ -6,9 +6,10 @@ const {
   updateStudent,
   deleteStudent,
   login,
-} = require("./src/controllers");
+} = require("./src/controllers/controllers");
 const cors = require("cors");
 const mongoose = require("mongoose");
+const { register, signIn } = require("./src/controllers/users");
 
 //? DB Connect Start
 
@@ -31,10 +32,12 @@ server.use(parser.json());
 
 // http methods -> 2 min args, max -- N
 server.get("/students", getAllStudents);
-server.post("/login", login);
 server.post("/create-new-students", createStudent);
 server.put("/update-student", updateStudent);
 server.delete("/delete-student", deleteStudent);
+
+server.post("/register", register);
+server.post("/login", signIn);
 
 server.listen(4000, () => {
   console.log("Server Stared on 4000 PORT");

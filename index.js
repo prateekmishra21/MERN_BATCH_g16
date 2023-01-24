@@ -10,7 +10,9 @@ app.use(cors());
 app.use(bodyParser.json());
 
 //DB Connection
-mongoose.connect("mongodb://0.0.0.0:27017/blog_g16");
+mongoose.connect(
+  "mongodb+srv://merng16:puguwLLulvRFuVYL@cluster0.yprwra3.mongodb.net/data?retryWrites=true&w=majority"
+);
 mongoose.connection.on("connected", () => {
   console.log("DB CONNECTED DONE");
 });

@@ -20,6 +20,10 @@ mongoose.connection.on("connected", () => {
 app.use("/auth", authRouter);
 app.use("/blog", blogRouter);
 
+app.get("", (req, res) => {
+  return res.sendFile(__dirname + "/index.html");
+});
+
 app.listen(4000, () => {
-  console.log("Server Started on 4000 ");
+  console.log("Server Started on 4000 ", "\n", __dirname);
 });
